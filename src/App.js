@@ -1,10 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components/macro"
-import { RadioButton } from "./RadioButton"
-
-const StyledRadioButton = styled(RadioButton)`
-color: #ddcbff;
-`
+import { StyledRadioButton } from "./StyledRadioButton"
 
 const Main = styled.section`
 width: fit-content;
@@ -15,6 +11,13 @@ background: #4a1e9e;
 `
 
 export const App = () => {
+  const [selectedId, setSelectedId] = useState()
+
+  const handleRadioButtonChange = (event) => {
+    setSelectedId(event.target.id)
+    console.log(event.target.id)
+  }
+
   return (
     <Main>
       < StyledRadioButton
@@ -22,16 +25,31 @@ export const App = () => {
         id="female"
         name="gender"
         value="Female"
+        selectedId={selectedId}
+        onChange={handleRadioButtonChange}
+        background="#ddcbff"
+        backgroundChecked="#9e861e"
+        color="#ddcbff"
       />
       < StyledRadioButton
         id="male"
         name="gender"
         value="Male"
+        selectedId={selectedId}
+        onChange={handleRadioButtonChange}
+        background="#ddcbff"
+        backgroundChecked="#9e861e"
+        color="#ddcbff"
       />
       < StyledRadioButton
         id="other"
         name="gender"
         value="Other"
+        selectedId={selectedId}
+        onChange={handleRadioButtonChange}
+        background="#ddcbff"
+        backgroundChecked="#9e861e"
+        color="#ddcbff"
       />
     </Main>
   )
